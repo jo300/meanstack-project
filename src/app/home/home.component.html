@@ -1,0 +1,36 @@
+<div>
+
+
+
+    <h3>Contact Form</h3>
+
+    <label for="first_name">First Name: </label>
+    <input id="first_name" type="text" [formControl]="first_name">
+    <label for="last_name">Last Name: </label>
+    <input id="last_name" type="text" [formControl]="last_name">
+    <label for="phone">Phone: </label>
+    <input id="phone" type="text" [formControl]="phone">
+    <input type="submit" (click)="add()">
+    <p style="color:red">{{info.msg}}</p>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+            <th>edit</th>
+            <th>save</th>
+            <th>delete</th>
+
+        </tr>
+        <tr *ngFor="let contact of contacts;let i=index">
+            <td>{{contact.first_name}}</td>
+            <td>{{contact.last_name}}</td>
+            <td>{{contact.phone}}</td>
+            <td><button>edit</button></td>
+            <td><button (click)="updateData(contact._id)">update</button></td>
+            <td><button (click)="deleteData(contact._id)">delete</button></td>
+        </tr>
+
+    </table>
+
+</div>
